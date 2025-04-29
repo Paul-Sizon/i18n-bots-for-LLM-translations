@@ -1,0 +1,13 @@
+{
+  "amount_zeta": "Cantidad (ZETA)",
+  "need_zeta_buy_with_card": "¿Necesitas ZETA? Compra con tarjeta 💳",
+  "connect_your_wallet": "Conecta tu billetera",
+  "buy_zeta_with_card": "Compra ZETA con tarjeta",
+  "processing_payment": "Procesando el pago",
+  "payment_complete": "Pago completado",
+  "approximate_cost": "Costo aproximado: ${amount} USD",
+  "card_number": "Número de tarjeta",
+  "cardholder_name": "Nombre del titular de la tarjeta",
+  "expiry_date": "Fecha de expiración",
+  "buy_everything": "Compra todo"
+}
