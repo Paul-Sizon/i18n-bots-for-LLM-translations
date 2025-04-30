@@ -4,6 +4,10 @@ Python bots to internationalize and translate React (Next.js + TypeScript) apps 
 
 ## 🚀 Scripts Overview
 
+### Pre-requisites
+
+Integrate next-intl into your app. Follow the [next-intl documentation](https://next-intl.dev/) for setup.
+
 ### 1. `i18n-bot.py` – Auto-Wrap and Extract Keys
 
 Scans `.tsx/.jsx` files in `app/` and `components/`, wraps visible text in `t()`, and extracts translation keys.
