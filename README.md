@@ -2,11 +2,11 @@
 
 Python bots to internationalize and translate React (Next.js + TypeScript) apps powered by next-intl, with GPT-based AI.
 
-## 🚀 Scripts Overview
-
 ### Pre-requisites
 
 Integrate next-intl into your app. Follow the [next-intl documentation](https://next-intl.dev/) for setup.
+
+## 🚀 Scripts Overview
 
 ### 1. `i18n-bot.py` – Auto-Wrap and Extract Keys
 
