@@ -13,8 +13,7 @@
 
   {
     "welcome": {
-      "text": "Welcome back!",
-      "update": true
+      "update": "Welcome back!",     
     }
   }
 
@@ -125,8 +124,9 @@ def translate_sync(input_file: str, output_folder: str, target_languages: list, 
     with open(input_file, 'r', encoding='utf-8') as f:
         en_data = json.load(f)
 
-    updates = {k: v for k, v in en_data.items() if isinstance(v, dict) and v.get("update")}
-    new_keys = {k: v for k, v in en_data.items() if k not in updates and not isinstance(v, dict)}
+    updates = {k: v for k, v in en_data.items() if isinstance(v, dict) and isinstance(v.get("update"), str)}
+    new_keys = {k: v for k, v in en_data.items() if not isinstance(v, dict)}
+
 
     print(f"🆕 {len(new_keys)} new keys | ✏️ {len(updates)} keys marked for update")
 
@@ -147,8 +147,7 @@ def translate_sync(input_file: str, output_folder: str, target_languages: list, 
                 to_translate[key] = value
 
         for key, update in updates.items():
-            if key in en_data:
-                to_translate[key] = update["text"] if isinstance(update, dict) else update
+            to_translate[key] = update["update"]
 
         if not to_translate:
             print("✅ No translation needed for this language.")
@@ -168,9 +167,10 @@ def translate_sync(input_file: str, output_folder: str, target_languages: list, 
         print(f"📁 Synced: {lang}.json")
 
     # Clean up update markers in en.json
-    for key in updates:
-        if isinstance(en_data[key], dict):
-            en_data[key] = updates[key]["text"] if "text" in updates[key] else updates[key]
+    for key, val in updates.items():
+        if isinstance(val, dict) and "update" in val:
+            en_data[key] = val["update"]
+
 
     with open(input_file, 'w', encoding='utf-8') as f:
         json.dump(en_data, f, ensure_ascii=False, indent=2)

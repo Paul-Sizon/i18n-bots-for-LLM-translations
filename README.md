@@ -50,8 +50,7 @@ Only translates:
 ```json
 {
   "welcome": {
-    "text": "Welcome back!",
-    "update": true
+    "update": "Welcome back!",    
   }
 }
 ```
